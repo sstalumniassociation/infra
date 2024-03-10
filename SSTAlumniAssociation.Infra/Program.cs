@@ -1,9 +1,9 @@
 ﻿using Pulumi;
+using SSTAlumniAssociation.Infra;
 
 return await Deployment.RunAsync(() =>
 {
-    return new Dictionary<string, object?>
-    {
-        ["outputKey"] = "outputValue"
-    };
+    GitHub.Run();
+
+    return new Dictionary<string, object?>();
 });

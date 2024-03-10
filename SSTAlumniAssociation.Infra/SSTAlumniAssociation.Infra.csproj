@@ -9,6 +9,8 @@
 
     <ItemGroup>
       <PackageReference Include="Pulumi" Version="3.60.0" />
+      <PackageReference Include="Pulumi.Github" Version="6.0.1" />
+      <PackageReference Include="Pulumi.Tls" Version="5.0.1" />
     </ItemGroup>
 
 </Project>
