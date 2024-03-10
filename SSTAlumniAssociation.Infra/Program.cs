@@ -2,8 +2,5 @@
 
 return await Deployment.RunAsync(() =>
 {
-    return new Dictionary<string, object?>
-    {
-        ["outputKey"] = "outputValue"
-    };
+    return new Dictionary<string, object?>();
 });
