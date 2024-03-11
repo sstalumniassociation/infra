@@ -40,14 +40,14 @@ public static class GitHub
                 Key = grpcClientTsPrivateKey.PublicKeyOpenssh
             });
 
-        var apiActionSecrets = new ActionsSecret("apiClientTypescriptSecret", new ActionsSecretArgs
+        var apiActionSecrets = new ActionsSecret("apiClientTypescriptActionSecret", new ActionsSecretArgs
         {
             SecretName = "API_CLIENT_TYPESCRIPT_DEPLOY_KEY",
             Repository = ApiClientTypescriptRepository,
             PlaintextValue = apiClientTsDeployKey.Key
         });
 
-        var grpcActionSecrets = new ActionsSecret("grpcClientTypescriptSecret", new ActionsSecretArgs
+        var grpcActionSecrets = new ActionsSecret("grpcClientTypescriptActionSecret", new ActionsSecretArgs
         {
             SecretName = "GRPC_CLIENT_TYPESCRIPT_DEPLOY_KEY",
             Repository = GrpcClientTypescriptRepository,
