@@ -20,9 +20,8 @@ public static class GitHub
         var apiClientTsDeployKey = new RepositoryDeployKey("apiClientTypescriptDeployKey",
             new RepositoryDeployKeyArgs
             {
-                Title = "Deploy key for API repo",
+                Title = "Deploy key for API repo. Managed by Pulumi.",
                 Repository = ApiClientTypescriptRepository,
-                ReadOnly = true,
                 Key = apiClientTsPrivateKey.PublicKeyOpenssh
             });
 
@@ -35,9 +34,8 @@ public static class GitHub
         var grpcClientTsDeployKey = new RepositoryDeployKey("grpcClientTypescriptDeployKey",
             new RepositoryDeployKeyArgs
             {
-                Title = "Deploy key for API repo",
+                Title = "Deploy key for API repo. Managed by Pulumi.",
                 Repository = GrpcClientTypescriptRepository,
-                ReadOnly = true,
                 Key = grpcClientTsPrivateKey.PublicKeyOpenssh
             });
 
