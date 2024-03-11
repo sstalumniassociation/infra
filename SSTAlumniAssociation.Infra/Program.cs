@@ -3,7 +3,10 @@ using SSTAlumniAssociation.Infra;
 
 return await Deployment.RunAsync(() =>
 {
-    GitHub.Run();
+    if (Deployment.Instance.StackName == "production")
+    {
+        GitHub.Run();
+    }
 
     return new Dictionary<string, object?>();
 });

@@ -5,8 +5,9 @@ namespace SSTAlumniAssociation.Infra;
 
 public static class GitHub
 {
-    private const string ApiClientTypescriptRepository = "sstalumniassociation/api-client-typescript";
-    private const string GrpcClientTypescriptRepository = "sstalumniassociation/grpc-client-typescript";
+    private const string ApiRepository = "api";
+    private const string ApiClientTypescriptRepository = "api-client-typescript";
+    private const string GrpcClientTypescriptRepository = "grpc-client-typescript";
 
     public static void Run()
     {
@@ -43,14 +44,14 @@ public static class GitHub
         var apiActionSecrets = new ActionsSecret("apiClientTypescriptActionSecret", new ActionsSecretArgs
         {
             SecretName = "API_CLIENT_TYPESCRIPT_DEPLOY_KEY",
-            Repository = ApiClientTypescriptRepository,
+            Repository = ApiRepository,
             PlaintextValue = apiClientTsDeployKey.Key
         });
 
         var grpcActionSecrets = new ActionsSecret("grpcClientTypescriptActionSecret", new ActionsSecretArgs
         {
             SecretName = "GRPC_CLIENT_TYPESCRIPT_DEPLOY_KEY",
-            Repository = GrpcClientTypescriptRepository,
+            Repository = ApiRepository,
             PlaintextValue = grpcClientTsDeployKey.Key
         });
     }
