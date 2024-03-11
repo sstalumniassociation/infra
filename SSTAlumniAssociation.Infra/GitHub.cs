@@ -22,7 +22,8 @@ public static class GitHub
             {
                 Title = "Deploy key for API repo. Managed by Pulumi.",
                 Repository = ApiClientTypescriptRepository,
-                Key = apiClientTsPrivateKey.PublicKeyOpenssh
+                Key = apiClientTsPrivateKey.PublicKeyOpenssh,
+                ReadOnly = false,
             });
 
         var grpcClientTsPrivateKey = new PrivateKey("grpcClientTypescriptDeployKeyPrivateKey",
@@ -36,21 +37,22 @@ public static class GitHub
             {
                 Title = "Deploy key for API repo. Managed by Pulumi.",
                 Repository = GrpcClientTypescriptRepository,
-                Key = grpcClientTsPrivateKey.PublicKeyOpenssh
+                Key = grpcClientTsPrivateKey.PublicKeyOpenssh,
+                ReadOnly = false,
             });
 
         var apiActionSecrets = new ActionsSecret("apiClientTypescriptActionSecret", new ActionsSecretArgs
         {
             SecretName = "API_CLIENT_TYPESCRIPT_DEPLOY_KEY",
             Repository = ApiRepository,
-            PlaintextValue = apiClientTsDeployKey.Key
+            PlaintextValue = apiClientTsPrivateKey.PrivateKeyOpenssh
         });
 
         var grpcActionSecrets = new ActionsSecret("grpcClientTypescriptActionSecret", new ActionsSecretArgs
         {
             SecretName = "GRPC_CLIENT_TYPESCRIPT_DEPLOY_KEY",
             Repository = ApiRepository,
-            PlaintextValue = grpcClientTsDeployKey.Key
+            PlaintextValue = grpcClientTsPrivateKey.PrivateKeyOpenssh
         });
     }
 }
